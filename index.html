@@ -18,17 +18,16 @@
         
     </div>
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog -->
-    <dialog id="favDialog">
-        <form>
-            <div id="cross-button-container">
-                <!-- <button id="cross-button" value="cancel" formmethod="dialog">x</button> -->
-                <button id="cross-button" type="button">x</button>
-            </div>
-            
-          <p>
+<dialog id="favDialog">
+    <form>
+        <div id="cross-button-container">
+            <button id="cross-button" type="button">x</button>
+        </div>
+        
+        <p>
             Add new book:
-          </p>
-          <div id="input">
+        </p>
+        <div id="input">
             <label for="input-title">Title:</label>
             <input type="text" id="input-title" name="input-title" required><br><br>
 
@@ -39,20 +38,14 @@
             <input type="number" id="input-pages" name="input-pages" required><br><br>
 
             <div id="checkbox-container">
-              <input type="checkbox" id="checkbox-read" name="book-status" value="read">
-              <label for="checkbox-read">Book Read</label>
+                <input type="checkbox" id="checkbox-read" name="book-status" value="read">
+                <label for="checkbox-read">Book Read</label>
             </div>
-            <button id="add-button" type="button">Add</button><br><br>
+            <button id="add-button" type="submit">Add</button><br><br>
             <button id="cancel-button" type="button">Cancel</button>
         </div>
-          </div>
-
-          <div>
-
-            
-          </div>
-        </form>
-      </dialog>
+    </form>
+</dialog>
 
   </body>
   <script src="index.js"></script>

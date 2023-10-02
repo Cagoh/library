@@ -51,71 +51,78 @@ addButton.addEventListener("click", function() {
 
   // You can also perform other actions, like adding the values to a list or sending them to a server.
 
-
-
-  // Create a new div element for bookContainer
-  const bookContainer = document.createElement("div");
-  // Set the id attribute for the created div element
-  bookContainer.id = "book-container";
-  
-  // create a div element to view library 
-  // Create a new paragraph element
-  const titleParagraph = document.createElement("p");
-  const authorParagraph = document.createElement("p");
-  const pagesParagraph = document.createElement("p");
-
-  // Create div element with id "checkbox-container"
-  const checkboxContainer = document.createElement("div");
-  checkboxContainer.id = "checkbox-container";
-
-  // Create Remove book button
-  const removeBookButton = document.createElement("button")
-  removeBookButton.textContent = "Remove book"
-
-  // Create input element
-  const checkboxInput = document.createElement("input");
-  checkboxInput.type = "checkbox";
-  checkboxInput.id = "checkbox-read";
-  checkboxInput.name = "book-status";
-  checkboxInput.value = "read";
-
-  // Create label element
-  const checkboxLabel = document.createElement("label");
-  checkboxLabel.htmlFor = "checkbox-read";
-  checkboxLabel.textContent = "Book Read";
-
-  // Check if the checkbox is checked
-  if (checkbox.checked) {
-    // Checkbox is checked
-    console.log("Checkbox is checked. Value: " + checkbox.value);
-    checkboxInput.checked = true;
+  if (title === "" || author === "" || pages === "") {
+    // alert("Please fill out all the fields: Title, Author, and Pages.");
   } else {
-    // Checkbox is not checked
-    console.log("Checkbox is not checked.");
-    checkboxInput.checked = false;
+      // Proceed with form submission or any other action
+      // For example, you can submit the form data to the server here
+
+    // Create a new div element for bookContainer
+    const bookContainer = document.createElement("div");
+    // Set the id attribute for the created div element
+    bookContainer.id = "book-container";
+    
+    // create a div element to view library 
+    // Create a new paragraph element
+    const titleParagraph = document.createElement("p");
+    const authorParagraph = document.createElement("p");
+    const pagesParagraph = document.createElement("p");
+
+    // Create div element with id "checkbox-container"
+    const checkboxContainer = document.createElement("div");
+    checkboxContainer.id = "checkbox-container";
+
+    // Create Remove book button
+    const removeBookButton = document.createElement("button")
+    removeBookButton.textContent = "Remove book"
+
+    // Create input element
+    const checkboxInput = document.createElement("input");
+    checkboxInput.type = "checkbox";
+    checkboxInput.id = "checkbox-read";
+    checkboxInput.name = "book-status";
+    checkboxInput.value = "read";
+
+    // Create label element
+    const checkboxLabel = document.createElement("label");
+    checkboxLabel.htmlFor = "checkbox-read";
+    checkboxLabel.textContent = "Book Read";
+
+    // Check if the checkbox is checked
+    if (checkbox.checked) {
+      // Checkbox is checked
+      console.log("Checkbox is checked. Value: " + checkbox.value);
+      checkboxInput.checked = true;
+    } else {
+      // Checkbox is not checked
+      console.log("Checkbox is not checked.");
+      checkboxInput.checked = false;
+    }
+
+    // Append input and label elements to the checkboxContainer
+    checkboxContainer.appendChild(checkboxInput);
+    checkboxContainer.appendChild(checkboxLabel);
+
+    // Set the content of the paragraph element
+    titleParagraph.textContent = "Title: " + title;
+    authorParagraph.textContent = "Author:" + author;
+    pagesParagraph.textContent = "Total Pages: " + pages;
+
+    // Append the paragraph element to the bookContainer
+    bookContainer.appendChild(titleParagraph);
+    bookContainer.appendChild(authorParagraph);
+    bookContainer.appendChild(pagesParagraph);
+    bookContainer.appendChild(checkboxContainer);
+    bookContainer.appendChild(removeBookButton);
+
+    libraryContainer.appendChild(bookContainer);
+
+    removeBookButton.addEventListener("click", ()=>{
+      bookContainer.remove();
+    })
   }
 
-  // Append input and label elements to the checkboxContainer
-  checkboxContainer.appendChild(checkboxInput);
-  checkboxContainer.appendChild(checkboxLabel);
 
-  // Set the content of the paragraph element
-  titleParagraph.textContent = "Title: " + title;
-  authorParagraph.textContent = "Author:" + author;
-  pagesParagraph.textContent = "Total Pages: " + pages;
-
-  // Append the paragraph element to the bookContainer
-  bookContainer.appendChild(titleParagraph);
-  bookContainer.appendChild(authorParagraph);
-  bookContainer.appendChild(pagesParagraph);
-  bookContainer.appendChild(checkboxContainer);
-  bookContainer.appendChild(removeBookButton);
-
-  libraryContainer.appendChild(bookContainer);
-
-  removeBookButton.addEventListener("click", ()=>{
-    bookContainer.remove();
-  })
 
 });
 
